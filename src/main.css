@@ -1,0 +1,47 @@
+body{
+  background-color: #1D2129 !important;
+  color: #708097 !important;
+}
+/* .items-container{
+  display: flex;
+} */
+.posts-container{
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.post{
+  text-align: center;
+  flex: 1;
+}
+.box-container{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 50px 0px;
+}
+.App{
+  min-width: 500px;
+  max-width: 1440px;
+  width: calc(100% - 100px);
+  margin: 0 auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track, corner */
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background: #171A20;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #708097;
+  border-radius: 5px;
+}
