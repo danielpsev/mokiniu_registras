@@ -45,3 +45,17 @@ body{
   background: #708097;
   border-radius: 5px;
 }
+
+
+/*sweetalert*/
+.swal-modal {
+  background-color: #2c3034;
+}
+.swal-title,
+.swal-text{
+  color: unset;
+}
+.swal-icon--success:after, .swal-icon--success:before,
+.swal-icon--success__hide-corners{
+  background: #2c3034;
+}

@@ -12,7 +12,7 @@ export default function Main() {
       surname: "Jonauskas",
       birth: "2003-05-21",
       city: "Kaunas",
-      course: "Java",
+      course: "JavaScript",
       group: "J03",
     },
     {
@@ -23,6 +23,15 @@ export default function Main() {
       city: "Klaipeda",
       course: "Testuotojai",
       group: "T01",
+    },
+    {
+      id: 3,
+      name: "Vytautas",
+      surname: "Vitkauskas",
+      birth: "2000-01-11",
+      city: "Klaipeda",
+      course: "Testuotojai",
+      group: "J03",
     },
   ]);
 
