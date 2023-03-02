@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-
-export default function AddStudenForm() {
+import { v4 as uuidv4 } from "uuid";
+import { toast } from 'react-toastify';
+export default function AddStudenForm(props) {
+  const {students, setStudents} = props;
   const [formInputs, setFormInputs] = useState({
     s_name: "",
     s_surname: "",
@@ -17,11 +19,32 @@ export default function AddStudenForm() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const {s_name, s_surname, s_bdate, s_city, s_course, s_group} = formInputs;
+    if(s_name && s_surname && s_bdate && s_city && s_course && s_group){
+      const new_student = 
+      {
+        id: uuidv4(),
+        name: s_name,
+        surname: s_surname, 
+        birth: s_bdate, 
+        city: s_city,
+        course: s_course,
+        group: s_group,
+      }
+      setStudents(() => [...students, new_student]);
+      toast.success("Studentas pridėtas!");
+      setFormInputs('');
+      document.getElementById("addStudentForm").reset();
+    }else{
+      toast.error("Užpildykite visus laukelius!");
+    }
+
+
   };
   return (
     <div>
       Forma
-      <form>
+      <form id="addStudentForm">
         <input
           type="text"
           placeholder="Vardas"
@@ -67,6 +90,7 @@ export default function AddStudenForm() {
           placeholder="Pridėti"
           value="Pridėti"
           className="btn btn-primary"
+          onClick={handleSubmit}
         />
       </form>
     </div>
