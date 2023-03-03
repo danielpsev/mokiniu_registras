@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import AddStudenForm from "./AddStudentForm";
 import StudentsList from "./StudentsList";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Main() {
   const [students, setStudents] = useState([
@@ -26,8 +26,8 @@ export default function Main() {
     },
     {
       id: 3,
-      name: "Vytautas",
-      surname: "Vitkauskas",
+      name: "Tadas",
+      surname: "Melinauskas",
       birth: "2000-01-11",
       city: "Klaipeda",
       course: "Testuotojai",
@@ -37,9 +37,9 @@ export default function Main() {
 
   return (
     <main>
-      <ToastContainer position="bottom-right" theme="dark" newestOnTop/>
-      <AddStudenForm students={students} setStudents={setStudents}/>
-      <StudentsList students={students} setStudents={setStudents}/>
+      <ToastContainer position="top-center" theme="dark" newestOnTop />
+      <AddStudenForm students={students} setStudents={setStudents} />
+      <StudentsList students={students} setStudents={setStudents} />
     </main>
   );
 }
