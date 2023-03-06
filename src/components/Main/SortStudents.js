@@ -93,26 +93,7 @@ export default function SortStudents(props) {
     console.log("FILTERS: " + filters.sort_group);
   };
 
-  // const sortCourse = (e) => {
-  //   e.target.value ? setFilterData(students.filter((el) => el.course == e.target.value)) : setFilterData(false);
-  // }
-  // const sortGroup = (e) => {
-  //   e.target.value ? setFilterData(students.filter((el) => el.group == e.target.value)) : setFilterData(false);
-  // }
-
-  //  const changeFilter = (e) => {
-  //   let sort_course = document.getElementById("sort_course").value;
-  //   let sort_group = document.getElementById("sort_group").value;
-  //   if(sort_course){
-  //     console.log("sort course" + sort_course);
-  //     sort_course ? setFilterData(students.filter((el) => el.course == sort_course)) : setFilterData(false);
-  //   }
-  //   if(sort_group){
-  //     console.log("Sort group: " + sort_group)
-  //   }
-
-  //  }
-
+ 
   return (
     <div className="col-md-5 d-flex">
       <select
@@ -141,7 +122,7 @@ export default function SortStudents(props) {
         className="form-control"
         value={searchQuery}
         onChange={handleSearchChange}
-        placeholder="Search"
+        placeholder="Paieška"
       />
     </div>
   );

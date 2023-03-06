@@ -12,35 +12,21 @@ export default function Student(props) {
     activeInputs,
     setActiveInputs,
   } = props;
-  const [editMode, setEditMode] = useState(false);
 
-  const editStudent = (id) => {
-    console.log("edit student:" + id);
-    console.log("editModeBefore:" + editMode);
-    setEditMode(!editMode);
-    console.log("editModeAfter:" + editMode);
+  const defaultEditValues = {
+    name: obj.name,
+    surname: obj.surname,
+    birth: obj.birth,
+    city: obj.city,
+    course: obj.course,
+    group: obj.group
+  }
 
-    setTimeout(() => {
-      console.log("after timeout:" + editMode);
-    }, 5000);
-    // let item = document
-    //   .getElementById("student" + id)
-    //   .querySelectorAll("td input");
-    // for (let i = 0; i < item.length; i++) {
-    //   item[i].disabled = false;
-    // }
-    // console.log(item);
-  };
   const handleChange = (e) => {
     const name = e.target.name;
     const val = e.target.value;
-    console.log("set edit values" + name + val);
     setEditValues({ ...editValues, [name]: val });
   };
-
-  useEffect(() => {
-    console.log("effect mode: " + editMode);
-  }, [editMode]);
 
   return (
     <tr className={"p2 mt-3 bg-opacity-10 "} id={"student" + obj.id}>
@@ -48,47 +34,96 @@ export default function Student(props) {
         <input
           type="text"
           name="name"
-          className="form-control"
+          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
           defaultValue={obj.name}
           id={"edit_s_name" + obj.id}
-          onChange={handleChange}
           disabled={activeInputs == obj.id ? false : true}
+          onChange={handleChange}
         />
       </td>
       <td className="col-md-2">
         <input
           type="text"
           name="surname"
-          className="form-control"
-          defaultValue={obj.surname}
+          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
           id={"edit_s_surname" + obj.id}
-          onChange={handleChange}
           disabled={activeInputs == obj.id ? false : true}
+          onChange={handleChange}
+          value={obj.surname}
         />
       </td>
-      <td> {obj.birth}</td>
-      <td> {obj.city}</td>
-      <td> {obj.course}</td>
-      <td> {obj.group}</td>
+     <td>   
+      <input
+          type="date"
+          name="birth"
+          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
+          disabled={activeInputs == obj.id ? false : true}
+          onChange={handleChange}
+          value={obj.birth}
+        /></td>
+      <td> 
+      <input
+          type="text"
+          name="city"
+          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
+          disabled={activeInputs == obj.id ? false : true}
+          onChange={handleChange}
+          value={obj.city}
+        />
+      </td>
+      <td>       
+        {/* <input
+          type="text"
+          name="course"
+          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
+          disabled={activeInputs == obj.id ? false : true}
+          onChange={handleChange}
+          value={obj.course}
+        /> */}
+        
+        
+        <select
+            name="course"
+            className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
+            disabled={activeInputs == obj.id ? false : true}
+            onChange={handleChange}
+            value={obj.course}
+          >
+            <option value="JavaScript">JavaScript</option>
+            <option value="Java">Java</option>
+            <option value="Testuotojai">Testuotojai</option>
+          </select>
+        
+        
+        
+        
+        
+        </td>
       <td>
-        {editMode ? (
+      <input
+          type="text"
+          name="group"
+          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
+          disabled={activeInputs == obj.id ? false : true}
+          onChange={handleChange}
+          value={obj.group}
+        />       
+      </td>
+      <td>
+        {activeInputs == obj.id ? (
           <GiConfirmed
             className="text-success Student-table-icon"
             onClick={() => {
               saveStudent(obj.id);
-              setEditMode(!editMode);
-              console.log("save mode" + editMode);
+              setActiveInputs('');
             }}
           />
         ) : (
           <AiFillEdit
             className="text-primary Student-table-icon"
             onClick={() => {
-              editStudent(obj.id);
-              // setEditMode(!editMode);
-              // console.log("edit mode" + editMode);
-
-              //setActiveInputs(obj.id);
+              setEditValues(defaultEditValues);
+              setActiveInputs(obj.id);
             }}
           />
         )}

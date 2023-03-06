@@ -4,3 +4,18 @@
 .Student-table-icon:hover{
     cursor: pointer;
 }
+.StudentsList-tbody input,
+.StudentsList-tbody select{
+    border: unset !important;
+    background: unset !important;
+    color: var(--bs-table-striped-color) !important;
+    user-select: text !important;
+}
+.StudentsList-tbody input.active,
+.StudentsList-tbody select.active{
+    background: var(--bs-form-control-bg) !important;
+    color: var(--bs-gray-900) !important;
+}
+/* .StudentsList-tbody input[disabled] {
+    cursor: text;
+} */

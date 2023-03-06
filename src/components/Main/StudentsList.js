@@ -10,6 +10,10 @@ export default function StudentsList(props) {
   const [editValues, setEditValues] = useState({
     name: "",
     surname: "",
+    birth: "",
+    city: "",
+    course: "",
+    group: ""
   });
 
   const deleteStudent = (id) => {
@@ -34,13 +38,17 @@ export default function StudentsList(props) {
   const saveStudent = (id) => {
     console.log("save student:" + id);
     setActiveInputs("");
-    let s_name = document.getElementById("edit_s_name" + id).value;
-    let s_surname = document.getElementById("edit_s_surname" + id).value;
+    // let s_name = document.getElementById("edit_s_name" + id).value;
+    // let s_surname = document.getElementById("edit_s_surname" + id).value;
     let data_copy = [...students];
     data_copy.forEach((el) => {
       if (el.id == id) {
-        el.name = s_name;
-        el.surname = s_surname;
+        el.name = editValues.name;
+        el.surname = editValues.surname;
+        el.city = editValues.city;
+        el.city = editValues.city;
+        el.course = editValues.course;
+        el.group = editValues.group;
         return;
       }
     });
@@ -100,7 +108,7 @@ export default function StudentsList(props) {
             <th scope="col">Redaguoti</th>
           </tr>
         </thead>
-        <tbody>{filterData ? filtered_students : students_list}</tbody>
+        <tbody className="StudentsList-tbody">{filterData ? filtered_students : students_list}</tbody>
       </table>
     </div>
   );

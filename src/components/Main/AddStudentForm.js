@@ -57,9 +57,9 @@ export default function AddStudenForm(props) {
         });
         // document.getElementById("addStudentForm").reset();
       } else {
-        for (let i = 0; i < 2; i++) {
-          toast.error(errors[i]);
-        }
+        //for (let i = 0; i < 2; i++) {
+          toast.error(errors[0]);
+       // }
       }
     } else {
       toast.error("Užpildykite visus laukelius!");

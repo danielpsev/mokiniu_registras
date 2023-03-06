@@ -39,7 +39,7 @@ export default function Main() {
 
   return (
     <main>
-      <ToastContainer position="top-center" theme="dark" newestOnTop />
+      <ToastContainer position="top-right" theme="dark"  newestOnTop />
       <AddStudenForm students={students} setStudents={setStudents} />
       <StudentsList students={students} setStudents={setStudents} />
     </main>
