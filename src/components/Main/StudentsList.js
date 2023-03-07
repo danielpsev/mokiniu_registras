@@ -13,7 +13,7 @@ export default function StudentsList(props) {
     birth: "",
     city: "",
     course: "",
-    group: ""
+    group: "",
   });
 
   const deleteStudent = (id) => {
@@ -45,7 +45,7 @@ export default function StudentsList(props) {
       if (el.id == id) {
         el.name = editValues.name;
         el.surname = editValues.surname;
-        el.city = editValues.city;
+        el.birth = editValues.birth;
         el.city = editValues.city;
         el.course = editValues.course;
         el.group = editValues.group;
@@ -58,7 +58,7 @@ export default function StudentsList(props) {
   let students_list = students.map((el) => {
     return (
       <Student
-        key={uuidv4()}
+        // key={uuidv4()}
         obj={el}
         deleteStudent={deleteStudent}
         saveStudent={saveStudent}
@@ -108,7 +108,9 @@ export default function StudentsList(props) {
             <th scope="col">Redaguoti</th>
           </tr>
         </thead>
-        <tbody className="StudentsList-tbody">{filterData ? filtered_students : students_list}</tbody>
+        <tbody className="StudentsList-tbody">
+          {filterData ? filtered_students : students_list}
+        </tbody>
       </table>
     </div>
   );

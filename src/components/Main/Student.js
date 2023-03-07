@@ -19,10 +19,11 @@ export default function Student(props) {
     birth: obj.birth,
     city: obj.city,
     course: obj.course,
-    group: obj.group
-  }
+    group: obj.group,
+  };
 
   const handleChange = (e) => {
+    // setEditValues(defaultEditValues);
     const name = e.target.name;
     const val = e.target.value;
     setEditValues({ ...editValues, [name]: val });
@@ -34,44 +35,53 @@ export default function Student(props) {
         <input
           type="text"
           name="name"
-          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
-          defaultValue={obj.name}
+          className={
+            activeInputs == obj.id ? "form-control active" : "form-control"
+          }
           id={"edit_s_name" + obj.id}
           disabled={activeInputs == obj.id ? false : true}
           onChange={handleChange}
+          value={activeInputs == obj.id ? editValues.name : obj.name}
         />
       </td>
       <td className="col-md-2">
         <input
           type="text"
           name="surname"
-          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
+          className={
+            activeInputs == obj.id ? "form-control active" : "form-control"
+          }
           id={"edit_s_surname" + obj.id}
           disabled={activeInputs == obj.id ? false : true}
           onChange={handleChange}
-          value={obj.surname}
+          value={activeInputs == obj.id ? editValues.surname : obj.surname}
         />
       </td>
-     <td>   
-      <input
+      <td>
+        <input
           type="date"
           name="birth"
-          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
+          className={
+            activeInputs == obj.id ? "form-control active" : "form-control"
+          }
           disabled={activeInputs == obj.id ? false : true}
           onChange={handleChange}
-          value={obj.birth}
-        /></td>
-      <td> 
-      <input
-          type="text"
-          name="city"
-          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
-          disabled={activeInputs == obj.id ? false : true}
-          onChange={handleChange}
-          value={obj.city}
+          value={activeInputs == obj.id ? editValues.birth : obj.birth}
         />
       </td>
-      <td>       
+      <td>
+        <input
+          type="text"
+          name="city"
+          className={
+            activeInputs == obj.id ? "form-control active" : "form-control"
+          }
+          disabled={activeInputs == obj.id ? false : true}
+          onChange={handleChange}
+          value={activeInputs == obj.id ? editValues.city : obj.city}
+        />
+      </td>
+      <td>
         {/* <input
           type="text"
           name="course"
@@ -80,34 +90,32 @@ export default function Student(props) {
           onChange={handleChange}
           value={obj.course}
         /> */}
-        
-        
+
         <select
-            name="course"
-            className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
-            disabled={activeInputs == obj.id ? false : true}
-            onChange={handleChange}
-            value={obj.course}
-          >
-            <option value="JavaScript">JavaScript</option>
-            <option value="Java">Java</option>
-            <option value="Testuotojai">Testuotojai</option>
-          </select>
-        
-        
-        
-        
-        
-        </td>
-      <td>
-      <input
-          type="text"
-          name="group"
-          className={activeInputs == obj.id ? 'form-control active' : 'form-control'}
+          name="course"
+          className={
+            activeInputs == obj.id ? "form-control active" : "form-control"
+          }
           disabled={activeInputs == obj.id ? false : true}
           onChange={handleChange}
-          value={obj.group}
-        />       
+          value={activeInputs == obj.id ? editValues.course : obj.course}
+        >
+          <option value="JavaScript">JavaScript</option>
+          <option value="Java">Java</option>
+          <option value="Testuotojai">Testuotojai</option>
+        </select>
+      </td>
+      <td>
+        <input
+          type="text"
+          name="group"
+          className={
+            activeInputs == obj.id ? "form-control active" : "form-control"
+          }
+          disabled={activeInputs == obj.id ? false : true}
+          onChange={handleChange}
+          value={activeInputs == obj.id ? editValues.group : obj.group}
+        />
       </td>
       <td>
         {activeInputs == obj.id ? (
@@ -115,7 +123,7 @@ export default function Student(props) {
             className="text-success Student-table-icon"
             onClick={() => {
               saveStudent(obj.id);
-              setActiveInputs('');
+              setActiveInputs("");
             }}
           />
         ) : (
